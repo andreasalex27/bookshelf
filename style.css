@@ -32,6 +32,7 @@ body {
   filter: brightness(0.5);
   position: absolute;
   width: 100%;
+  height: auto;
   z-index: -99;
 }
 .banner > h1 {
