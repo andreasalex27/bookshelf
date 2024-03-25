@@ -310,11 +310,11 @@ header > p {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
     .book,
     .wrap-edit-form {
-        width: 320px;
-        height: 220px;
+        width: 300px;
+        height: 200px;
     }
     .rak-buku {
         flex-direction: column;
