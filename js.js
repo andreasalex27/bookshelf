@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
           id: +new Date(),
           title: judul,
           author: author,
-          year: tahun,
+          year: parseInt(tahun),
           isComplete: false
       };
 
