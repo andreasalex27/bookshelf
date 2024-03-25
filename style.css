@@ -136,6 +136,7 @@ header > p {
   font-size: 15px;
   font-weight: 600;
   background-color: #d72323;
+  cursor: pointer;
 }
 #tambah-btn,
 #cari-btn {
@@ -273,6 +274,24 @@ header > p {
   font-weight: 600;
 }
 /* edit book */
+
+/* hover */
+.tambah-btn:hover,
+.cari-btn:hover,
+.form-edit-btn:hover {
+    transform: scale(1.02);
+    transition: transform .3s ease-in-out;
+}
+.wrap-book-btn > ul > li:hover {
+    color: var(--white);
+}
+.tambah-btn:active,
+.cari-btn:active,
+.form-edit-btn:active,
+.wrap-book-btn > ul > li:active {
+    transform: scale(0.95);
+}
+/* hover */
 
 @media screen and (max-width: 1000px) {
   .rak-buku {

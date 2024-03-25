@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Fungsi untuk mendapatkan data buku dari localStorage
   function getDataFromLocalStorage() {
       return JSON.parse(localStorage.getItem('books')) || [];
   }
 
-  // Fungsi untuk menyimpan data buku ke localStorage
   function saveDataToLocalStorage(books) {
       localStorage.setItem('books', JSON.stringify(books));
   }
 
-  // Fungsi untuk menampilkan buku pada rak buku yang sesuai
   function displayBooks() {
       const belumDibacaContainer = document.getElementById('belum-dibaca');
       const sudahDibacaContainer = document.getElementById('sudah-dibaca');
@@ -27,11 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
           }
       });
 
-      // Panggil fungsi setupEditButton untuk mengaktifkan tombol edit
       setupEditButton();
   }
 
-  // Fungsi untuk membuat elemen buku
   function createBookElement(book) {
       const bookElement = document.createElement('div');
       bookElement.classList.add('book');
@@ -56,12 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
       `;
 
-      // Tambahkan event listener untuk tombol hapus
       bookElement.querySelector('.delete-btn').addEventListener('click', function() {
           deleteBook(book.id);
       });
 
-      // Tambahkan event listener untuk tombol pindah
       bookElement.querySelector('.move-btn').addEventListener('click', function() {
           moveBook(book.id);
       });
@@ -69,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return bookElement;
   }
 
-  // Fungsi untuk menampilkan formulir edit
   function displayEditForm(book) {
       const editForm = document.createElement('form');
       editForm.classList.add('wrap-edit-form')
@@ -99,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return editForm;
   }
 
-  // Fungsi untuk menambahkan buku baru
   function addBook(judul, author, tahun) {
       const books = getDataFromLocalStorage();
       const newBook = {
@@ -115,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
       displayBooks();
   }
 
-  // Fungsi untuk menghapus buku
   function deleteBook(id) {
       let books = getDataFromLocalStorage();
       books = books.filter(function(book) {
@@ -125,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
       displayBooks();
   }
 
-  // Fungsi untuk memindahkan buku antar rak
   function moveBook(id) {
       let books = getDataFromLocalStorage();
       books = books.map(function(book) {
@@ -138,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
       displayBooks();
   }
 
-  // Fungsi untuk mengedit buku
   function editBook(id, judul, author, tahun) {
       let books = getDataFromLocalStorage();
       books = books.map(function(book) {
@@ -153,7 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
       displayBooks();
   }
 
-  // Fungsi untuk menampilkan formulir edit saat tombol "Edit" ditekan
   function setupEditButton() {
       const editButtons = document.querySelectorAll('.edit-btn');
       editButtons.forEach(function(button) {
@@ -173,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
-  // Event listener untuk form tambah buku
   document.getElementById('form-add').addEventListener('submit', function(event) {
       event.preventDefault();
       const judul = document.getElementById('judul').value;
@@ -183,7 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
       this.reset();
   });
 
-  // Fungsi untuk melakukan pencarian buku
 function searchBooks(keyword) {
   const books = getDataFromLocalStorage();
   const filteredBooks = books.filter(function(book) {
@@ -196,7 +181,6 @@ function searchBooks(keyword) {
   displayFilteredBooks(filteredBooks);
 }
 
-// Fungsi untuk menampilkan hasil pencarian
 function displayFilteredBooks(filteredBooks) {
   const belumDibacaContainer = document.getElementById('belum-dibaca');
   const sudahDibacaContainer = document.getElementById('sudah-dibaca');
@@ -214,7 +198,6 @@ function displayFilteredBooks(filteredBooks) {
   });
 }
 
-// Event listener untuk form pencarian buku
 document.getElementById('form-cari').addEventListener('submit', function(event) {
   event.preventDefault();
   const keyword = document.getElementById('cari-buku').value;
@@ -222,6 +205,5 @@ document.getElementById('form-cari').addEventListener('submit', function(event) 
 });
 
 
-  // Panggil fungsi untuk menampilkan buku saat halaman dimuat
   displayBooks();
 });
